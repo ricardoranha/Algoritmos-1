@@ -1,0 +1,92 @@
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int cantidadDigitos(int n){
+	int c=0;
+	while(n>0)
+	n=n/10;
+	c++;
+	
+ return c;
+}
+
+int cantidadDigitosImpares(int n){
+	int c=0,d;
+	while(n>0)
+	{d=n%10;
+	if(d%2!=0)
+	{c++;}
+	n=n/10;}
+ return c;
+}
+
+int sumaDigitos(int n)
+{int s=0,d;
+ while(n>0)
+ {d=n%10;
+  s=s+d;
+  n=n/10;
+ }
+ return s;
+}
+
+int eliminarDigitosPares(int n)
+{int nn=0,d;
+ while(n>0)
+ {d=n%10;
+	if(d%2!=0)
+	{
+	nn=(nn*10)+d;
+	}
+	n=n/10;
+ }
+ return nn;
+}
+
+int invertirDigito(int n)
+{int nn=0,d;
+ while(n>0)
+ {d=n%10;
+  nn=(nn*10)+d;
+  n=n/10;
+ }
+ return nn;
+}
+
+
+void main()
+{int nro,r,opcion;
+cout<<"introducir un numero natural: ";
+cin>>nro;
+do{cout<<endl<<"\n ----MENU----";
+   cout<<endl<<"1. Contar digitos";
+   cout<<endl<<"2. Contar solo impares";
+   cout<<endl<<"3. Sumar todos los digitos";
+   cout<<endl<<"4. Eliminar digitos pares";
+   cout<<endl<<"5. Invertir el numero";
+   cout<<endl<<"0. Salir";
+   cin>>opcion;
+   switch(opcion)
+		{ case 1: r=cantidadDigitos(nro);
+				  cout<<"la cantidad de digitos es: "<<r;
+				  break;
+	      case 2: r=cantidadDigitosImpares(nro);
+				  cout<<"la cantidad de digitos impares es:"<<r;
+				  break;
+	      case 3: r=sumaDigitos(nro);
+				  cout<<"la suma de digitos es:"<<r;
+		          break;
+		  case 4: r=eliminarDigitosPares(nro);
+				  cout<<"el numevo numero es: "<<r;
+				  break;
+		  case 5: r=invertirDigito(nro);
+				  cout<<"el numero invertido es: "<<r;
+				  break;
+			
+   }
+   }while(opcion !=0);
+
+getch ();
+}
